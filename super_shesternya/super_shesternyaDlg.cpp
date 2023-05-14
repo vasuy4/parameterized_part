@@ -59,27 +59,36 @@ void CsupershesternyaDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 
-	DDX_Text(pDX, IDC_EDIT1, m_extrusion);
-	DDV_MinMaxDouble(pDX, m_extrusion, 0, 10000);
-	DDX_Text(pDX, IDC_EDIT2, m_diameter);
-	DDV_MinMaxDouble(pDX, m_diameter, 0, 10000);
-	DDX_Text(pDX, IDC_EDIT3, m_diameter_S);
-	DDV_MinMaxDouble(pDX, m_diameter_S, 0, 10000);
-	DDX_Text(pDX, IDC_EDIT4, m_diameter_L);
-	DDV_MinMaxDouble(pDX, m_diameter_L, 0, 10000);
-	DDX_Text(pDX, IDC_EDIT5, m_cutout);
-	DDV_MinMaxDouble(pDX, m_cutout, 0, 10000);
-	DDX_Text(pDX, IDC_EDIT6, m_thickness);
-	DDV_MinMaxDouble(pDX, m_thickness, 0, 10000);
-	DDX_Text(pDX, IDC_EDIT7, m_rib_thickness);
-	DDX_Text(pDX, IDC_EDIT9, m_edge_height);
-	DDX_Text(pDX, IDC_EDIT8, m_count_edge);
-	DDX_Text(pDX, IDC_EDIT12, m_depth_hole);
-	DDX_Text(pDX, IDC_EDIT10, m_width_hole);
-	DDX_Text(pDX, IDC_EDIT11, m_length_hole);
-	DDX_Text(pDX, IDC_EDIT13, m_count_of_holes);
-	DDX_Text(pDX, IDC_EDIT15, m_internal_teeth);
-	DDX_Text(pDX, IDC_EDIT16, m_external_teeth);
+	DDX_Text(pDX, IDC_EDIT1, m_extrusion); //толщина детали
+	DDV_MinMaxDouble(pDX, m_extrusion, 0, 100);
+	DDX_Text(pDX, IDC_EDIT2, m_diameter); //D центрального отверстия
+	DDV_MinMaxDouble(pDX, m_diameter, 0, 300);
+	DDX_Text(pDX, IDC_EDIT3, m_diameter_S); //диаметр внутренней окружности
+	DDV_MinMaxDouble(pDX, m_diameter_S, m_diameter, m_diameter + 200);
+	DDX_Text(pDX, IDC_EDIT4, m_diameter_L); //диаметр внешней окружности
+	DDV_MinMaxDouble(pDX, m_diameter_L, m_diameter_S, m_diameter_S + 200);
+	DDX_Text(pDX, IDC_EDIT5, m_cutout); //глубина выреза
+	DDV_MinMaxDouble(pDX, m_cutout, 0, m_extrusion / 2);
+	DDX_Text(pDX, IDC_EDIT6, m_thickness); //толщина окружностей
+	DDV_MinMaxDouble(pDX, m_thickness, 0, 50);
+	DDX_Text(pDX, IDC_EDIT7, m_rib_thickness); //толщина рёбра
+	DDV_MinMaxDouble(pDX, m_rib_thickness, 0, 50);
+	DDX_Text(pDX, IDC_EDIT9, m_edge_height); //высота ребра
+	DDV_MinMaxDouble(pDX, m_edge_height, 0, m_cutout);
+	DDX_Text(pDX, IDC_EDIT8, m_count_edge); //количество рёбер
+	DDV_MinMaxDouble(pDX, m_count_edge, 0, 20);
+	DDX_Text(pDX, IDC_EDIT12, m_depth_hole); //глубина впадины
+	DDV_MinMaxDouble(pDX, m_depth_hole, 0, m_cutout);
+	DDX_Text(pDX, IDC_EDIT10, m_width_hole); //ширина впадины
+	DDV_MinMaxDouble(pDX, m_width_hole, 0, m_thickness - 1);
+	DDX_Text(pDX, IDC_EDIT11, m_length_hole); //длина впадины
+	DDV_MinMaxDouble(pDX, m_length_hole, 0, 30);
+	DDX_Text(pDX, IDC_EDIT13, m_count_of_holes); //количество впадин
+	DDV_MinMaxDouble(pDX, m_count_of_holes, 0, 20);
+	DDX_Text(pDX, IDC_EDIT15, m_internal_teeth); //количество внутренних зубьев
+	DDV_MinMaxDouble(pDX, m_internal_teeth, 0, 70);
+	DDX_Text(pDX, IDC_EDIT16, m_external_teeth); //количество внешних зубьев
+	DDV_MinMaxDouble(pDX, m_external_teeth, 0, 120);
 }
 
 BEGIN_MESSAGE_MAP(CsupershesternyaDlg, CDialogEx)
