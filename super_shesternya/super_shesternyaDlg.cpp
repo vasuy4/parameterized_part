@@ -11,8 +11,8 @@
 
 //#include "stdafx.h"
 #include "math.h"
-#include "G:\Aprograms\Kompas\SDK\Include\ksConstants.h"
-#include "G:\Aprograms\Kompas\SDK\Include\ksConstants3D.h"
+#include "G:\Aprograms\Kompas\SDK\Include\ksConstants.h" //"Путь к Компас-3D\SDK\Include\ksConstants.h"
+#include "G:\Aprograms\Kompas\SDK\Include\ksConstants3D.h" //"Путь к Компас-3D\SDK\Include\ksConstants3D.h"
 
 #include <atlsafe.h>
 #include <comutil.h>
@@ -25,7 +25,7 @@
 
 #pragma once
 
-#import "G:\Aprograms\Kompas\SDK\lib\kAPI5.tlb"
+#import "G:\Aprograms\Kompas\SDK\lib\kAPI5.tlb" //"Путь к Компас-3D\SDK\lib\kAPI5.tlb"
 
 using namespace Kompas6API5;
 KompasObjectPtr pKompasApp5;
